@@ -1,6 +1,108 @@
 // ====================================================================
-// 1. Reverse a String
+// ARRAY PROBLEMS
 // ====================================================================
+
+// --------------------------------------------------------------------
+// 1. Reverse an Array
+// --------------------------------------------------------------------
+function reverseArray(arr) {
+    return arr.reverse();
+}
+console.log("Reverse of an array is " + reverseArray([1, 2, 3, 4, 5]));
+
+// --------------------------------------------------------------------
+// 2. Find the Largest Number in an Array
+// --------------------------------------------------------------------
+
+// Create a function where,
+// 1. Use Math.max() function to get max/large number out of array.
+// Or,
+// 1. Let array[0] = temp.
+// 2. For Loop on array starting from index 1 to the length of array.
+//    -> If array[i] > temp, then largest = array[i] and continue loop.
+// 3. Return largest -> which is the largest number in an Array.
+
+function largest1(num) {
+    return Math.max(...num);
+}
+console.log("Maximum number in array is " + largest1([2, 1, 4, 5, 33, 55, 23]));
+
+// Or,
+
+function largest2(num) {
+    temp = num[0];
+    for (let i = 1; i < num.length; i++) {
+        if (num[i] > temp) {
+            temp = num[i];
+        }
+    }
+    return largest = temp;
+}
+console.log("Maximum number in array is " + largest2([2, 3, 5, 2, 6, 11, 2, 24, 555, 22]));
+
+// --------------------------------------------------------------------
+// 3. Remove Duplicate Elements from an Array
+// --------------------------------------------------------------------
+
+// Create a function where,
+// 1. Use [...new Set(array)].
+
+function removeDuplicate(arr) {
+    return [...new Set(arr)];
+}
+console.log("Array after removing duplicate value is " + removeDuplicate([1, 7, 3, 4, 5, 2, 3, 4, 5, 1, 2, 3, 4, 5, 26, 2, 6]));
+
+// --------------------------------------------------------------------
+// 4. Flatten an Array
+// --------------------------------------------------------------------
+
+// Problem: Convert a nested array into a single-level array.
+// Example: [1, [2, 3], [4, [5]]] → [1, 2, 3, 4, 5]
+
+// Create a function where,
+// 1. Use function flat(Infinity).
+
+function flattenArray(arr) {
+    return arr.flat(Infinity);
+}
+console.log("Flatten Nested Array is " + flattenArray([2, 3, [1, 2, 4, 4], [2, 7, [8, 9]]]));
+
+//The .flat() method flattens nested arrays.
+// Infinity means it will flatten arrays at any level, no matter how deeply nested.
+
+// --------------------------------------------------------------------
+// 5. Find Missing Number in Array
+// --------------------------------------------------------------------
+
+function findMissing(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i + 1] !== arr[i] + 1) {
+            return arr[i] + 1;
+        }
+    }
+}
+
+console.log("Missing number is " + findMissing([1, 2, 3, 4, 6, 7, 8]));
+
+// Alternative...
+function findMissingNum(arr) {
+    let n = arr.length + 1;
+    let total = (n * (n + 1)) / 2;
+
+    let sum = arr.reduce((a, b) => a + b, 0);
+
+    return total - sum;
+}
+
+console.log("Missing number is " + findMissingNum([1, 2, 3, 5]));
+
+// ====================================================================
+// STRING PROBLEMS
+// ====================================================================
+
+// --------------------------------------------------------------------
+// 1. Reverse a String
+// --------------------------------------------------------------------
 
 // Create a function where,
 // 1. Split the string provided into letters in an array.
@@ -10,16 +112,49 @@
 function reverse(str) {
     return str.split("").reverse().join("");
 }
-console.log(reverse("JEKEN MAHARJAN"));
+console.log("Reverse of a string is " + reverse("JEKEN MAHARJAN"));
 
 // Explanation:
 // split('') converts string to array
 // reverse() reverses array
 // join('') converts back to string
 
-// ====================================================================
-// 2. Check if a String is a Palindrome
-// ====================================================================
+// --------------------------------------------------------------------
+// 2. Count Vowels in a String
+// --------------------------------------------------------------------
+
+// Create a function where,
+// 1. Declare vowels = 'aeiou' and use split to create an array for it.
+// 2. Compare each element of array of vowels and given string array.
+// 3. If its vowels in a string then increase the count starting from 0 in a loop.
+
+function countVowels(str) {
+    let count = 0;
+    const vowels = "aeiou";
+    // const vowelsArr = vowels.toLowerCase().split("");
+    const strArr = str.toLowerCase().split("");
+
+    // for (let char of str.toLowerCase()) {
+    //     if (vowels.includes(char)) {
+    //         count++;
+    //     }
+    // }
+    
+    for (let i = 0; i < strArr.length; i++) {
+        if (vowels.includes(strArr[i])) {
+            count++;
+        }
+    }
+
+    return count;
+}
+console.log("The count of vowels is " + countVowels("AeroPlane"));
+console.log("The count of vowels is " + countVowels("Apple"));
+console.log("The count of vowels is " + countVowels("kydn"));
+
+// --------------------------------------------------------------------
+// 3. Check if a String is a Palindrome
+// --------------------------------------------------------------------
 
 // Create a function where,
 // 1. Create const forward variable which is equal to string in lowercase.
@@ -33,95 +168,31 @@ function palinDrome(str) {
 }
 console.log(palinDrome("Madam"));
 
-// ====================================================================
-// 3. Find the Largest Number in an Array
-// ====================================================================
+// --------------------------------------------------------------------
+// 4. Capitalize First Letter
+// --------------------------------------------------------------------
 
-// Create a function where,
-// 1. Use Math.max() function to get max/large number out of array.
-// Or,
-// 1. Let array[0] = temp.
-// 2. For Loop on array starting from index 1 to the length of array.
-//    -> If array[i] > temp, then largest = array[i] and continue loop.
-// 3. Return largest -> which is the largest number in an Array.
-
-function largest1(num) {
-    return Math.max(...num);
+function capitalFirstLetter(str) {
+    let strArr = str.split("");
+    let firstLetter = strArr[0].toUpperCase();
+    let otherLetter = "";
+    for (let i = 1; i < str.length; i++) {
+        otherLetter += strArr[i].toLowerCase();
+    }
+    return firstLetter + otherLetter;
 }
-console.log(largest1([2, 1, 4, 5, 33, 55, 23]));
+console.log("Capitalize first letter -> " + capitalFirstLetter("oRaNgE"));
 
 // Or,
 
-function largest2(num) {
-    temp = num[0];
-    for (let i = 1; i < num.length; i++) {
-        if (num[i] > temp) {
-            temp = num[i];
-        }
-    }
-    return largest = temp;
+function capitalFirstLetteR(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }
-console.log(largest2([2, 3, 5, 2, 6, 11, 2, 24, 555, 22]));
+console.log("Capitalize first letter -> " + capitalFirstLetteR("oRaNgE"));
 
-// ====================================================================
-// 4. Remove Duplicate Elements from an Array
-// ====================================================================
-
-// Create a function where,
-// 1. Use [...new Set(array)].
-
-function removeDuplicate(arr) {
-    return [...new Set(arr)];
-}
-console.log(removeDuplicate([1, 7, 3, 4, 5, 2, 3, 4, 5, 1, 2, 3, 4, 5, 26, 2, 6]));
-
-// ====================================================================
-// 5. Count Vowels in a String
-// ====================================================================
-
-// Create a function where,
-// 1. Declare vowels = 'aeiou' and use split to create an array for it.
-// 2. Compare each element of array of vowels and given string array.
-// 3. If its vowels in a string then increase the count starting from 0 in a loop.
-
-function countVowels(str) {
-    let count = 0;
-    const vowels = "aeiou";
-    // const vowelsArr = vowels.toLowerCase().split("");
-    const strArr = str.toLowerCase().split("");
-
-    for (let i = 0; i < strArr.length; i++) {
-        if (vowels.includes(strArr[i])) {
-            count++;
-        }
-    }
-    return count;
-}
-console.log(countVowels("AeroPlane"));
-console.log(countVowels("Apple"));
-console.log(countVowels("kydn"));
-
-// ====================================================================
-// 6. Flatten an Array
-// ====================================================================
-
-// Problem: Convert a nested array into a single-level array.
-// Example: [1, [2, 3], [4, [5]]] → [1, 2, 3, 4, 5]
-
-// Create a function where,
-// 1. Use function flat(Infinity).
-
-function flattenArray(arr) {
-    return arr.flat(Infinity);
-}
-console.log(flattenArray([2, 3, [1, 2, 4, 4], [2, 7, [8, 9]]]));
-
-//The .flat() method flattens nested arrays.
-// Infinity means it will flatten arrays at any level, no matter how deeply nested.
-
-// ====================================================================
-// 7. Check if Two Strings Are Anagrams
-// ====================================================================
+// --------------------------------------------------------------------
+// 5. Check if Two Strings Are Anagrams
+// --------------------------------------------------------------------
 
 // Two strings are anagrams if they contain the same letters.
 // Create a function where,
@@ -132,102 +203,11 @@ function checkAnagrams(str1, str2) {
     const strTwo = str2.split("").sort().join("");
     return strOne === strTwo;
 }
-console.log(checkAnagrams("listen", "silent"));
+console.log("Is two strings are Anagrams? -> " + checkAnagrams("listen", "silent"));
 
-// ====================================================================
-// 8. Find Missing Number in Array
-// ====================================================================
-
-function findMissing(arr) {
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i + 1] !== arr[i] + 1) {
-            return arr[i] + 1;
-        }
-    }
-}
-
-console.log(findMissing([1, 2, 3, 4, 6, 7, 8]));
-
-// Alternative...
-function findMissingNum(arr) {
-    let n = arr.length + 1;
-    let total = (n * (n + 1)) / 2;
-
-    let sum = arr.reduce((a, b) => a + b, 0);
-
-    return total - sum;
-}
-
-console.log(findMissingNum([1, 2, 3, 5]));
-
-// ====================================================================
-// 9. Factorial of a Number
-// ====================================================================
-
-function factorial(n) {
-    let result = 1;
-
-    for (let i = 1; i <= n; i++) {
-        result *= i;
-    }
-
-    return result;
-}
-
-console.log(factorial(5));
-
-// ====================================================================
-// 10. FizzBuzz (Very Popular Interview Question)
-// ====================================================================
-
-for (let i = 1; i <= 20; i++) {
-    if (i % 3 === 0 && i % 5 === 0) {
-        console.log("FizzBuzz");
-    }
-    else if (i % 3 === 0) {
-        console.log("Fizz");
-    }
-    else if (i % 5 === 0) {
-        console.log("Buzz");
-    }
-    else {
-        console.log(i);
-    }
-}
-
-// ====================================================================
-// 11. Reverse Words in a Sentence
-// ====================================================================
-
-// Reverse the words but keep the word characters correct.
-function reverseWords(str) {
-    let reversed = str.split(' ').reverse().join(' ');
-    return reversed;
-}
-
-console.log(reverseWords("I love JavaScript"));
-
-// ====================================================================
-// 12. Check if a Number is Even or Odd.
-// ====================================================================
-
-function evenOdd(num) {
-    if (num % 2 === 0) {
-        return "Even";
-    }
-    else {
-        return "Odd";
-    }
-}
-
-console.log(evenOdd(15));
-
-// Explanation:
-// Use modulus % operator.
-
-// ====================================================================
-// 13. Check if Two Strings are Anagrams
-// ====================================================================
+// --------------------------------------------------------------------
+// 6. Check if Two Strings are Anagrams
+// --------------------------------------------------------------------
 
 // Problem: Two strings are anagrams if they contain the same letters in a different order.
 // Example: "listen" and "silent" → true
@@ -249,4 +229,84 @@ console.log(isAnagram("hello", "world"));   // false
 // sort() → sort letters alphabetically
 // join("") → join letters back into a string
 // If sorted strings match → anagrams
+
+// ====================================================================
+// Simple Logic Tasks
+// ====================================================================
+
+// --------------------------------------------------------------------
+// 9. Factorial of a Number
+// --------------------------------------------------------------------
+
+function factorial(n) {
+    let result = 1;
+
+    for (let i = 1; i <= n; i++) {
+        result *= i;
+    }
+
+    return result;
+}
+
+console.log(factorial(5));
+
+// --------------------------------------------------------------------
+// 1. FizzBuzz (Very Popular Interview Question)
+// --------------------------------------------------------------------
+
+for (let i = 1; i <= 20; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+        console.log("FizzBuzz");
+    }
+    else if (i % 3 === 0) {
+        console.log("Fizz");
+    }
+    else if (i % 5 === 0) {
+        console.log("Buzz");
+    }
+    else {
+        console.log(i);
+    }
+}
+
+// --------------------------------------------------------------------
+// 2. Count Words in Sentence
+// --------------------------------------------------------------------
+
+function countWords(str) {
+    const words = str.trim().split(" ");
+    return (words.length);
+}
+console.log("Words count in sentence is " + countWords("Hello World"));
+
+// --------------------------------------------------------------------
+// 3. Reverse Words in a Sentence
+// --------------------------------------------------------------------
+
+// Reverse the words but keep the word characters correct.
+function reverseWords(str) {
+    let reversed = str.split(' ').reverse().join(' ');
+    return reversed;
+}
+
+console.log(reverseWords("I love JavaScript"));
+
+// --------------------------------------------------------------------
+// 12. Check if a Number is Even or Odd.
+// --------------------------------------------------------------------
+
+function evenOdd(num) {
+    if (num % 2 === 0) {
+        return "Even";
+    }
+    else {
+        return "Odd";
+    }
+}
+
+console.log(evenOdd(15));
+
+// Explanation:
+// Use modulus % operator.
+
 
