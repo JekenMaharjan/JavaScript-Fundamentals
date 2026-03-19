@@ -225,3 +225,28 @@ console.log(evenOdd(15));
 // Explanation:
 // Use modulus % operator.
 
+// ====================================================================
+// 13. Check if Two Strings are Anagrams
+// ====================================================================
+
+// Problem: Two strings are anagrams if they contain the same letters in a different order.
+// Example: "listen" and "silent" → true
+
+function isAnagram(str1, str2) {
+    // Remove spaces and convert to lowercase
+    str1 = str1.replace(/\s/g, "").toLowerCase();
+    str2 = str2.replace(/\s/g, "").toLowerCase();
+
+    // Sort the letters and compare
+    return str1.split("").sort().join("") === str2.split("").sort().join("");
+}
+
+console.log(isAnagram("listen", "silent")); // true
+console.log(isAnagram("hello", "world"));   // false
+
+// Explanation:
+// split("") → convert string to array of characters
+// sort() → sort letters alphabetically
+// join("") → join letters back into a string
+// If sorted strings match → anagrams
+
