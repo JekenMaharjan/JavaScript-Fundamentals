@@ -134,4 +134,30 @@ function checkAnagrams(str1, str2) {
 }
 console.log(checkAnagrams("listen", "silent"));
 
+// ====================================================================
+// 8. Find Missing Number in Array
+// ====================================================================
+
+function findMissing(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i + 1] !== arr[i] + 1) {
+            return arr[i] + 1;
+        }
+    }
+}
+
+console.log(findMissing([1, 2, 3, 4, 6, 7, 8]));
+
+// Alternative...
+function findMissingNum(arr) {
+    let n = arr.length + 1;
+    let total = (n * (n + 1)) / 2;
+
+    let sum = arr.reduce((a, b) => a + b, 0);
+
+    return total - sum;
+}
+
+console.log(findMissingNum([1, 2, 3, 5]));
+
 
