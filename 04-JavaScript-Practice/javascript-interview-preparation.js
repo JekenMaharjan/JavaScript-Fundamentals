@@ -118,3 +118,20 @@ console.log(flattenArray([2, 3, [1, 2, 4, 4], [2, 7, [8, 9]]]));
 
 //The .flat() method flattens nested arrays.
 // Infinity means it will flatten arrays at any level, no matter how deeply nested.
+
+// ====================================================================
+// 7. Check if Two Strings Are Anagrams
+// ====================================================================
+
+// Two strings are anagrams if they contain the same letters.
+// Create a function where,
+// 1. Get 2 string and split, sort and join them and then check if they are equal or not. So, If they are equal then its Anagrams...
+
+function checkAnagrams(str1, str2) {
+    const strOne = str1.split("").sort().join("");
+    const strTwo = str2.split("").sort().join("");
+    return strOne === strTwo;
+}
+console.log(checkAnagrams("listen", "silent"));
+
+
