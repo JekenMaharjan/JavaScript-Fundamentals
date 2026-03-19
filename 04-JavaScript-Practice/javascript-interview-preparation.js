@@ -207,3 +207,21 @@ function reverseWords(str) {
 
 console.log(reverseWords("I love JavaScript"));
 
+// ====================================================================
+// 12. Check if a Number is Even or Odd.
+// ====================================================================
+
+function evenOdd(num) {
+    if (num % 2 === 0) {
+        return "Even";
+    }
+    else {
+        return "Odd";
+    }
+}
+
+console.log(evenOdd(15));
+
+// Explanation:
+// Use modulus % operator.
+
