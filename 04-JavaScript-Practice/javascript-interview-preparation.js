@@ -74,3 +74,29 @@ function removeDuplicate(arr) {
     return [...new Set(arr)];
 }
 console.log(removeDuplicate([1, 7, 3, 4, 5, 2, 3, 4, 5, 1, 2, 3, 4, 5, 26, 2, 6]));
+
+// ====================================================================
+// 5. Count Vowels in a String
+// ====================================================================
+
+// Create a function where,
+// 1. Declare vowels = 'aeiou' and use split to create an array for it.
+// 2. Compare each element of array of vowels and given string array.
+// 3. If its vowels in a string then increase the count starting from 0 in a loop.
+
+function countVowels(str) {
+    let count = 0;
+    const vowels = "aeiou";
+    // const vowelsArr = vowels.toLowerCase().split("");
+    const strArr = str.toLowerCase().split("");
+
+    for (let i = 0; i < strArr.length; i++) {
+        if (vowels.includes(strArr[i])) {
+            count++;
+        }
+    }
+    return count;
+}
+console.log(countVowels("AeroPlane"));
+console.log(countVowels("Apple"));
+console.log(countVowels("kydn"));
