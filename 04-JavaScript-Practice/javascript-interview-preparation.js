@@ -33,5 +33,34 @@ function palinDrome(str) {
 }
 console.log(palinDrome("Madam"));
 
+// ====================================================================
+// 3. Find the Largest Number in an Array
+// ====================================================================
+
+// Create a function where,
+// 1. Use Math.max() function to get max/large number out of array.
+// Or,
+// 1. Let array[0] = temp.
+// 2. For Loop on array starting from index 1 to the length of array.
+//    -> If array[i] > temp, then largest = array[i] and continue loop.
+// 3. Return largest -> which is the largest number in an Array.
+
+function largest1(num) {
+    return Math.max(...num);
+}
+console.log(largest1([2, 1, 4, 5, 33, 55, 23]));
+
+// Or,
+
+function largest2(num) {
+    temp = num[0];
+    for (let i = 1; i < num.length; i++) {
+        if (num[i] > temp) {
+            temp = num[i];
+        }
+    }
+    return largest = temp;
+}
+console.log(largest2([2, 3, 5, 2, 6, 11, 2, 24, 555, 22]));
 
 
