@@ -100,3 +100,21 @@ function countVowels(str) {
 console.log(countVowels("AeroPlane"));
 console.log(countVowels("Apple"));
 console.log(countVowels("kydn"));
+
+// ====================================================================
+// 6. Flatten an Array
+// ====================================================================
+
+// Problem: Convert a nested array into a single-level array.
+// Example: [1, [2, 3], [4, [5]]] → [1, 2, 3, 4, 5]
+
+// Create a function where,
+// 1. Use function flat(Infinity).
+
+function flattenArray(arr) {
+    return arr.flat(Infinity);
+}
+console.log(flattenArray([2, 3, [1, 2, 4, 4], [2, 7, [8, 9]]]));
+
+//The .flat() method flattens nested arrays.
+// Infinity means it will flatten arrays at any level, no matter how deeply nested.
