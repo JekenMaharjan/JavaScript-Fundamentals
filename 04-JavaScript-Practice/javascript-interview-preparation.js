@@ -63,4 +63,14 @@ function largest2(num) {
 }
 console.log(largest2([2, 3, 5, 2, 6, 11, 2, 24, 555, 22]));
 
+// ====================================================================
+// 4. Remove Duplicate Elements from an Array
+// ====================================================================
 
+// Create a function where,
+// 1. Use [...new Set(array)].
+
+function removeDuplicate(arr) {
+    return [...new Set(arr)];
+}
+console.log(removeDuplicate([1, 7, 3, 4, 5, 2, 3, 4, 5, 1, 2, 3, 4, 5, 26, 2, 6]));
