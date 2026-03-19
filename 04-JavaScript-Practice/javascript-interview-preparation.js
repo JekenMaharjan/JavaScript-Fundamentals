@@ -194,3 +194,16 @@ for (let i = 1; i <= 20; i++) {
         console.log(i);
     }
 }
+
+// ====================================================================
+// 11. Reverse Words in a Sentence
+// ====================================================================
+
+// Reverse the words but keep the word characters correct.
+function reverseWords(str) {
+    let reversed = str.split(' ').reverse().join(' ');
+    return reversed;
+}
+
+console.log(reverseWords("I love JavaScript"));
+
