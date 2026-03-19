@@ -160,4 +160,20 @@ function findMissingNum(arr) {
 
 console.log(findMissingNum([1, 2, 3, 5]));
 
+// ====================================================================
+// 9. Factorial of a Number
+// ====================================================================
+
+function factorial(n) {
+    let result = 1;
+
+    for (let i = 1; i <= n; i++) {
+        result *= i;
+    }
+
+    return result;
+}
+
+console.log(factorial(5));
+
 
